@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите дату в формате DD.MM.YYYY");
+        String date = scanner.nextLine();
+        String[] separateDate = date.split("\\.");
+        Integer year = Integer.parseInt(separateDate[2]);
+        isLeapYear(year);
+    }
+    public static void isLeapYear(int year)
+    {
+        boolean leapYear = false;
+
+        if (year % 4 == 0) {
+            leapYear = true;
+            if (year % 100 == 0) {
+                if (year % 400 == 0)
+                    leapYear = true;
+                else
+                    leapYear = false;
+            }
+        }
+        else
+            leapYear = false;
+        if (!leapYear)
+            System.out.println(year + " : Не високосный год");
+        else
+            System.out.println(year + " : Високосный год");
+    }
+}
